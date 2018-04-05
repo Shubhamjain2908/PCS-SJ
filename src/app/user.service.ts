@@ -11,11 +11,4 @@ export class UserService {
                           {name: name, email: email, number: number},
                           {headers: head});
   }
-
-  userVerify(otp, email) {
-    const head = new HttpHeaders({'content-type' : 'application/json'});
-    return this.http.post('http://localhost:8383/pepcuscapability-showcase/mail/verify',
-                          {otp: otp, email: email},
-                          {headers: head});
-  }
 }
