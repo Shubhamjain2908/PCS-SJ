@@ -1,8 +1,102 @@
-<div class="rendering-container">
-  <section class="border-lightblue">
-    <div class="content-heading lightblue">
-      <h2 class="h5 white-heading">Password Encryption</h2>
+<div class="wrapper">
+  <div class="wrapper-heading blue"><h2 class="h5 white-heading">Encryption & File Protection</h2></div>
+  <div class="encrypt-container">
+
+    <div class="pwd-encrypt-wrapper">
+      <div class="wrapper-heading blue"><h2 class="h5 white-heading">Encryption</h2></div>
+      <div class="pwd-encrypt-wrapper-form">
+        <form role="form" name="pwdEncForm" id="pwdEncForm">
+          <div class="">
+            <div class="">
+              <div class="form-group">
+                <div class="selectContainer">
+                  <select class="form-control" name="algorithm" id="algorithm" (change)="onMethodChange(encryptionMethod)" #encryptionMethod required>
+                    <option value="">--Select Encryption method--</option>
+                    <option value="aes">AES</option>
+                    <option value="base64">Base64</option>
+                    <option value="bcrypt">Bcrypt</option>
+                    <option value="blowfish">Blowfish</option>
+                    <option value="md5">Message Digest (MD5)</option>
+                    <option value="PBKD">PBKD</option>
+                    <option value="sha">SHA-512</option>
+                    <option value="TripleDES">TripleDES</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="input-string">
+              <div class="form-group">
+                <!--<label class="sr-only" for="password">Input String</label>-->
+                <input type="text" name="password" placeholder="Enter any String..." required
+                       class="form-control" id="password"  (keyup)="encryptedPassword(encryptionMethod, pwd)" #pwd>
+              </div>
+              <div class="form-group" *ngIf="isMethodAES">
+                <!--<label class="sr-only" for="password">Key</label>-->
+                <input type="password" name="key" placeholder="Enter the key..." required
+                       class="form-control" id="key" [(ngModel)]="key">
+              </div>
+            </div>
+          </div>
+        </form>
+        <br>
+
+        <div class="">
+          <div class="form-group">
+            <input type="text" name="pwdResponse" id="pwdResponse" [(ngModel)]="encPwd" readonly>
+          </div>
+        </div>
+
+      </div>
     </div>
-    <app-password-encryption></app-password-encryption>
-  </section>
+
+    <div class="file-encrypt-wrapper">
+      <div class="wrapper-heading blue"><h2 class="h5 white-heading">File Protection</h2></div>
+      <div class="file-encrypt-wrapper-form">
+        <form role="form" name="fileEncForm" id="fileEncForm" enctype="multipart/form-data"
+              (ngSubmit)="onSubmit()" #fFile="ngForm">
+          <div class="">
+            <div class=" " >
+              <div class="form-group">
+                <input type="file" class="form-control" id="file" name="file" (change)="onFileChange()" required #AccUserImg>
+              </div>
+            </div>
+          </div>
+
+          <br>
+
+          <div class="pass-input">
+
+            <div class="form-group">
+              <input type="password" class="form-control" id="key" name="key" placeholder="Enter password" required ngModel>
+            </div>
+
+          </div>
+
+          <div class="submit-btn">
+            <div>
+              <!--<input type="submit" class="btn" id="btnSubmit"/>-->
+              <button type="button" style="cursor: not-allowed !important" class="btn" id="btnSubmit" *ngIf="!fFile.valid" >Submit</button>
+              <button type="submit" class="btn" name="btnSubmit" id="btnSubmit" *ngIf="fFile.valid && fFile.touched">Submit</button>
+            </div>
+          </div><br>
+          <span *ngIf="fileReady" style="color: green">File Protection successfull  !!!</span>
+        </form>
+        <br>
+        <form (ngSubmit)="onDownload()" #fs="ngForm">
+          <div *ngIf="fileReady" class="submit-btn">
+            <div>
+              <input type="submit" class="btn" id="btnSubmiat" value="Download">
+            </div>
+          </div>
+        </form>
+        <br>
+
+        <div id="fileResult" style="display:none;">
+          <input type="text" name="r" id="r/">
+        </div>
+      </div>
+
+    </div>
+
+  </div>
 </div>

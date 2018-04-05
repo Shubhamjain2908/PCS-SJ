@@ -212,3 +212,95 @@
   border-radius: 0.25rem;
   transition: all 0.2s ease-in-out;
 }
+.wrapper{
+  margin:10px;
+  border: 1px solid #f2f2f2;
+}
+.wrapper-heading{
+  padding:10px;
+  font-size:24px;
+}
+.form-group{
+  display:inline-flex;
+  width: 51%
+}
+.first-step input{
+  margin:5px;
+  border-style: none;
+  box-shadow: none;
+  border: none;
+  width:90%;
+
+}
+.first-step .input{
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  width: 61%;
+  margin: 7px;
+}
+input{
+  min-width:80%;
+}
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+.label{
+  padding:20px;
+  width:60px;
+}
+.second-step{
+  display:inline-flex;
+  width:100%;
+}
+.date-selector{
+  display: inline-grid;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  width:31%;
+  margin:7px;
+}
+.second-step .input{
+  margin:10px;
+
+}
+.submit-btn{
+  width:10%;
+}
+.encrypt-container{
+  display: inline-flex;
+  width: 90%;
+}
+.pwd-encrypt-wrapper{
+  margin: 15px;
+  width: 50%;
+  border: 1px solid #f2f2f2;
+}
+.file-encrypt-wrapper{
+  margin: 15px;
+  width: 50%;
+  border: 1px solid #f2f2f2;
+}
+.pwd-encrypt-wrapper-form{
+  margin: 10px;;
+}
+.file-encrypt-wrapper-form{
+  margin: 10px;;
+}
+.input-string{
+  margin-top: 15px;
+}
+.pass-input{
+  margin-bottom: 10px;
+}
+@media screen and (max-width: 480px){
+  .encrypt-container{
+    display: block;
+
+  }
+  .pwd-encrypt-wrapper{
+    width: 100%;
+  }
+
+  .file-encrypt-wrapper{
+    width: 100%;
+  }
+
+}
