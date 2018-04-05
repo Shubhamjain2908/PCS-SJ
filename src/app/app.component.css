@@ -1,214 +1,174 @@
-.rendering-container{
-  padding: 20px;
+body{
+  font-family: 'Open Sans', sans-serif;
 }
-.upload-content{
-  height: 180px;
-  border: 1px dashed #ccc;
-  background-color: #fff;
-  border-collapse: collapse;
+#myform{
+  padding: 5px;
+  width: 60%;
+
+}
+#myform label{
+  /*display: inline-block;
+  padding: 10px;*/
+  white-space: nowrap;
+  width: 50px;
   float: left;
-  width: 24%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
-.drag-drop {
-  padding: 10px;
+#myform input{
+  /*width: 130%;
+  padding: 10px;*/
+  float: left;
+  width: 280px;
+  min-width: 280px;
+  margin-top: 5px;
 }
-.preview-div{
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  /*-webkit-box-align: center;
-  -webkit-box-pack: center;
-  */
-  position:fixed;
-  background-size: contain;
-  background-repeat: no-repeat;
-  display: none;
-  width: 100%;
-  height: 100%;
-  z-index: 10000;
-  position: fixed;
-  background: rgba(0, 0, 0, 0.6);
-  top: 0px;
-  left: 0px;
-
+#myform textarea{
+  /*width: 130%;*/
+  float: left;
+  width: 280px;
+  min-width: 280px;
+  margin-top: 5px;
 }
-.preview-image{
-  width:400px;
-  height:300px;
-  position:fixed;
-
-  background-size: contain;
-  background-repeat: no-repeat;
+#myform p{
+  /*display: inline-block;
+  margin-bottom: 20px;*/
+}
+.percent {
+  display: block;
+  color: #fff;
+  font-size: 12px;
+  margin-left: 5px;
+  height: auto;
+  position: absolute;
+  top: 2px
 }
 
-.close-preview{
+.triangle_right {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 7.5px 10px 7.5px 0;
+  border-color: transparent rgba(255, 255, 255, .3) transparent
+  transparent;
+  display: block;
+  position: absolute;
+  left: -10px;
+  top: 10px
+}
+
+.triangle_left {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 7.5px 0 7.5px 10px;
+  border-color: transparent transparent transparent
+  rgba(255, 255, 255, .3);
+  display: block;
   position: absolute;
   right: -10px;
-  top: -10px;
-  width: 35px;
-  font-size: 18px;
-  height: 35px;
+  top: 10px
+}
+.label{
+  font-size:13px;
+  font-weight: bold;
+}
+.tooltip p {
   color: white;
-  background-color: #ef5350;
-  border-radius: 50px;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.close-preview span{
-  display: inline-block;
-  line-height: 21px;
+  margin-bottom: 10px;
+  font-size: 14px
 }
 
-#showFiles{
-  padding: 20px;
-  background-color: #fff;
-}
-.drop-box-container{
-  margin-top: 30px;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.uploaded-image{
-  width: 100%;
-  text-align: center;
-}
-.uploaded-image img{
-  width: 50%;
+.percentagebarinner {
+  width: 0;
+  background: #FFF;
+  height: 20px;
+  background: #6ea5e1;
+  position: relative
 }
 
-#uploadedFiles{
-  width: 85%
+.percentagebar {
+  width: 100%;
+  position: relative;
+  background: #FFF;
+  height: 20px
 }
-.uploaded-file-name{
-  overflow: hidden;
-  color: #ccc;
-  text-align: center;
-  text-overflow: ellipsis;
-  margin-bottom: 0;
+
+.rendering-container{
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
 }
-.progressBar{
-  width:35%;
-  background-color: #ddd;
-  border-radius: 20px;
+.section-container{
+  margin-top: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
 }
-.progress{
-  width:0%;
-  background-color: #626FE6;
-  border-radius: 20px;
-  color: #fff;
-  text-align: center;
+.form-slider-contents{
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
   padding: 5px;
-}
-#form-div{
   width: 100%;
+  margin-bottom: 0;
+  display: -webkit-box;
+  -webkit-box-align: center;
+}
+.form-formatter-contents{
+  box-sizing: border-box;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  text-align: left;
+  padding: 5px;
+  width: 100%;
+  margin-bottom: 0;
+  text-align: left;
+  display: -webkit-box;
+  -webkit-box-align: center;
 }
-#form-div input[type=file]{
-  display: none;
-}
-#form-div p{
-  text-align: center;
-  margin: 0;
-  color: #555;
-}
-.delete-file{
-  font-size: 20px;
-}
-.file-view{
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  border-bottom: 1px dashed #ccc;
-}
-.file-name{
-  overflow: hidden;
-  width: 20%;
-  text-overflow: ellipsis;
-}
-.file-size{
-  overflow: hidden;
-}
-
-.form-element {
-  padding: 30px;
-}
-
-.uploded-files-container{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-}
-.cardView{
-  width:100%;
-  height: 10%;
-}
-.drop-zone{
-  width:90%;
-  height:20%;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
-.drag-over{
-  border: 2px dashed #8787A3;
-  background-color: #F1F6F5;
-}
-.delete-file{
-  cursor: pointer;
-}
-.image-thumbnail{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100px;
-  height: 100px;
-  font-size: 60px;
+label{
+  margin-bottom: 0;
   padding: 10px;
 }
-.preview{
-  margin-left: 10px;
+.attribute-name{
+  width: 20%;
+  text-align: left;
+  color: #656565;
 }
-.image-thumbnail img{
-  max-height: 100%;
-  width: 100%;
-  object-fit: contain;
-}
-.form-element {
+.attribute-field{
+  box-sizing: border-box;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 40%;
-  height: 50px;
-  border: 1px dashed #ccc;
+  width: 79%;
 }
-.disabled-btn{
-  margin-left: 10px;
-  color: #e6e6e6;
-  background-color: beige;
-  border-color: #fd7570;
+.input-field{
+  width: 30%;
+  padding: 10px;
+}
+#slider{
+  width: 30%;
+  margin: 10px;
+}
+.progression-input-field{
+  width: 100%;
   display: inline-block;
-  font-weight: normal;
-  line-height: 1.25;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  border: 1px solid transparent;
-  padding: 7px 14px;
-  font-size: 14px;
-  border-radius: 0.25rem;
-  transition: all 0.2s ease-in-out;
+}
+.progression-input-field input{
+  margin-left: 10px;
+}
+.progression-input-field textarea{
+  margin-left: 10px;
+}
+.progression-button{
+  width: 30%;
+  margin-left: 10px;
+  cursor:pointer;
+}
+.btn{
+  cursor:pointer;
+}
+input{
+  margin-bottom:10px;
+  min-width:20%;
+}
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
 }

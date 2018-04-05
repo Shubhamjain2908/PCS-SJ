@@ -1,8 +1,52 @@
 <div class="rendering-container">
-  <section class="border-lightblue">
-    <div class="content-heading lightblue">
-      <h2 class="h5 white-heading">Password Encryption</h2>
+  <section class="section-container border-darkblue">
+    <div class="content-heading darkblue">
+      <h2 class="h5 white-heading">Email Verification</h2>
     </div>
-    <app-password-encryption></app-password-encryption>
+    <form id="myform" (ngSubmit)="onSubmit(name,email,number,password)" #f="ngForm">
+
+      <div class="progression-input-field">
+        <label class="label" for="f1">Name</label>
+
+        <input id="name" type="text" name="name" value="" placeholder="Name" ngModel required #name="ngModel">
+      </div>
+
+      <div class="progression-input-field">
+        <label class="label" for="">Number</label>
+
+        <input id="number" type="number" name="number" placeholder="Number" ngModel required #number>
+      </div>
+
+      <div class="progression-input-field">
+        <label class="label" for="">Email</label>
+
+        <input id="email" type="email" name="email" placeholder="Email" ngModel required email #email="ngModel">
+      </div>
+
+      <div class="progression-input-field">
+        <label class="label" for="">Password</label>
+
+        <input id="password" type="password" name="password" placeholder="Password" ngModel required #password>
+      </div>
+
+      <div class="progression-button">
+        <button type="button" style="cursor: not-allowed !important" class="btn" id="btnSubmit" *ngIf="!f.valid" >Submit</button>
+        <button type="submit" class="btn" name="btnSubmit" id="btnSubmit" *ngIf="f.valid && f.touched">Submit</button>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <span style="color: red; position: absolute;" class="invalid" *ngIf="!f.valid && f.touched">All fields are mandatory</span>
+      </div>
+
+    </form>
+    <div class="" style="margin:10px; width:35%;" *ngIf="isOtpSent" id="verifyUser">
+      <form id="verifyForm" (ngSubmit)="onVerify(otp)" #f2="ngForm">
+        <div class="form-control input">
+          <input type="number" name="otp" id="otp" placeholder="Enter the verification code" #otp>
+          <button type="submit" class="btn " name="btnSubmitVerify" id="btnSubmitVerify" value="Lets Go!">
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
   </section>
 </div>
