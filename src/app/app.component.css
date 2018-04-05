@@ -1,214 +1,70 @@
-.rendering-container{
+.wrapper{
+  margin:10px;
+  border: 1px solid #f2f2f2;
+}
+.wrapper-heading{
+  padding:10px;
+  font-size:24px;
+}
+.form-group{
+  display:inline-flex;
+  width: 51%
+}
+
+
+input{
+  min-width:80%;
+}
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+.label {
   padding: 20px;
-}
-.upload-content{
-  height: 180px;
-  border: 1px dashed #ccc;
-  background-color: #fff;
-  border-collapse: collapse;
-  float: left;
-  width: 24%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.drag-drop {
-  padding: 10px;
-}
-.preview-div{
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  /*-webkit-box-align: center;
-  -webkit-box-pack: center;
-  */
-  position:fixed;
-  background-size: contain;
-  background-repeat: no-repeat;
-  display: none;
-  width: 100%;
-  height: 100%;
-  z-index: 10000;
-  position: fixed;
-  background: rgba(0, 0, 0, 0.6);
-  top: 0px;
-  left: 0px;
-
-}
-.preview-image{
-  width:400px;
-  height:300px;
-  position:fixed;
-
-  background-size: contain;
-  background-repeat: no-repeat;
+  width: 60px;
+  font-size: 13px;
+  font-weight: bold;
 }
 
-.close-preview{
-  position: absolute;
-  right: -10px;
-  top: -10px;
-  width: 35px;
-  font-size: 18px;
-  height: 35px;
-  color: white;
-  background-color: #ef5350;
-  border-radius: 50px;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.submit-btn{
+  width:10%;
 }
-.close-preview span{
-  display: inline-block;
-  line-height: 21px;
+.decrypt-container{
+  display: inline-flex;
+  width: 90%;
 }
-
-#showFiles{
-  padding: 20px;
-  background-color: #fff;
-}
-.drop-box-container{
-  margin-top: 30px;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.uploaded-image{
-  width: 100%;
-  text-align: center;
-}
-.uploaded-image img{
+.pwd-decrypt-wrapper{
+  margin: 15px;
   width: 50%;
+  border: 1px solid #f2f2f2;
 }
+.file-decrypt-wrapper{
+  margin: 15px;
+  width: 50%;
+  border: 1px solid #f2f2f2;
+}
+.pwd-decrypt-wrapper-form{
+  margin: 10px;;
+}
+.file-decrypt-wrapper-form{
+  margin: 10px;;
+}
+.input-string{
+  margin-top: 15px;
+}
+.pass-input{
+  margin-bottom: 10px;
+}
+@media screen and (max-width: 480px){
+  .decrypt-container{
+    display: block;
 
-#uploadedFiles{
-  width: 85%
-}
-.uploaded-file-name{
-  overflow: hidden;
-  color: #ccc;
-  text-align: center;
-  text-overflow: ellipsis;
-  margin-bottom: 0;
-}
-.progressBar{
-  width:35%;
-  background-color: #ddd;
-  border-radius: 20px;
-}
-.progress{
-  width:0%;
-  background-color: #626FE6;
-  border-radius: 20px;
-  color: #fff;
-  text-align: center;
-  padding: 5px;
-}
-#form-div{
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
-#form-div input[type=file]{
-  display: none;
-}
-#form-div p{
-  text-align: center;
-  margin: 0;
-  color: #555;
-}
-.delete-file{
-  font-size: 20px;
-}
-.file-view{
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  border-bottom: 1px dashed #ccc;
-}
-.file-name{
-  overflow: hidden;
-  width: 20%;
-  text-overflow: ellipsis;
-}
-.file-size{
-  overflow: hidden;
-}
+  }
+  .pwd-decrypt-wrapper{
+    width: 100%;
+  }
 
-.form-element {
-  padding: 30px;
-}
+  .file-decrypt-wrapper{
+    width: 100%;
+  }
 
-.uploded-files-container{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-}
-.cardView{
-  width:100%;
-  height: 10%;
-}
-.drop-zone{
-  width:90%;
-  height:20%;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
-.drag-over{
-  border: 2px dashed #8787A3;
-  background-color: #F1F6F5;
-}
-.delete-file{
-  cursor: pointer;
-}
-.image-thumbnail{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100px;
-  height: 100px;
-  font-size: 60px;
-  padding: 10px;
-}
-.preview{
-  margin-left: 10px;
-}
-.image-thumbnail img{
-  max-height: 100%;
-  width: 100%;
-  object-fit: contain;
-}
-.form-element {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 40%;
-  height: 50px;
-  border: 1px dashed #ccc;
-}
-.disabled-btn{
-  margin-left: 10px;
-  color: #e6e6e6;
-  background-color: beige;
-  border-color: #fd7570;
-  display: inline-block;
-  font-weight: normal;
-  line-height: 1.25;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  border: 1px solid transparent;
-  padding: 7px 14px;
-  font-size: 14px;
-  border-radius: 0.25rem;
-  transition: all 0.2s ease-in-out;
 }

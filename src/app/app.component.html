@@ -1,8 +1,83 @@
-<div class="rendering-container">
-  <section class="border-lightblue">
-    <div class="content-heading lightblue">
-      <h2 class="h5 white-heading">Password Encryption</h2>
+<div class="wrapper">
+  <div class="wrapper-heading blue"><h2 class="h5 white-heading">Password & File Decryption</h2></div>
+  <div class="decrypt-container">
+
+    <div class="pwd-decrypt-wrapper">
+      <div class="wrapper-heading blue"><h2 class="h5 white-heading">Decryption</h2></div>
+      <div class="pwd-decrypt-wrapper-form">
+        <form role="form" name="pwdDecForm" id="pwdDecForm">
+          <div class="form-group">
+            <div class="selectContainer">
+              <select class="form-control" name="algorithm" id="algorithm" #decryptionMethod (change)="onMethodChange(decryptionMethod)" required>
+                <option value="">--Select Decryption method--</option>
+                <option value="aes">AES</option>
+                <option value="base64">Base64</option>
+                <option value="TripleDES">TripleDES</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group input-string">
+            <!--<label class="sr-only" for="password">Input String</label>-->
+            <input type="text" name="password" placeholder="Enter encrypted String..." required
+                   class="form-control" id="password" (keyup)="decryptedPassword(decryptionMethod, pwd)" #pwd>
+
+              <!--<label class="sr-only" for="password">Key</label>-->
+            <input *ngIf="isMethodAES" type="password" name="key" placeholder="Enter the key..." required
+                   class="form-control" id="key" [(ngModel)]="key">
+          </div>
+        </form>
+        <br>
+        <div class="decrypt-response">
+          <div class="form-group">
+            <input type="text" name="pwdDecryptResponse" id="pwdDecryptResponse" [(ngModel)]="decPwd" readonly>
+          </div>
+        </div>
+      </div>
     </div>
-    <app-password-encryption></app-password-encryption>
-  </section>
+
+    <div class="file-decrypt-wrapper">
+      <div class="wrapper-heading blue"><h2 class="h5 white-heading">File decryption</h2></div>
+      <div class="pwd-decrypt-wrapper-form">
+        <form role="form" name="fileDecForm" id="fileDecForm" enctype="multipart/form-data"
+              (ngSubmit)="onSubmit()" #f="ngForm">
+          <div class="">
+            <div class=" ">
+              <div class="form-group">
+                <!--<label for="file">File:</label>-->
+                <input type="file" class="form-control" id="file" name="file" required (change)="onFileChange()" #AccUserImg>
+              </div>
+            </div>
+          </div>
+          <br>
+          <div class="pass-input">
+            <div class="form-group">
+              <input type="password" class="form-control" id="key" name="key"
+                     placeholder="Enter password" ngModel>
+            </div>
+          </div>
+          <div class="submit-btn">
+            <div>
+              <!--<input type="submit" class="btn " id="btnSubmit">-->
+              <button type="button" style="cursor: not-allowed !important" class="btn" id="btnSubmit" *ngIf="!f.valid" >Submit</button>
+              <button type="submit" class="btn" name="btnSubmit" id="btnSubmit" *ngIf="f.valid && f.touched">Submit</button>
+            </div>
+          </div><br>
+          <span *ngIf="fileReady" style="color: red">File decryption successfull !!!</span>
+        </form>
+        <br>
+        <form (ngSubmit)="onDownload()" #fs="ngForm">
+          <div *ngIf="fileReady" class="submit-btn">
+            <div>
+              <input type="submit" class="btn" id="btnSubmiat" value="Download">
+            </div>
+          </div>
+        </form>
+        <br>
+        <div id="fileResult" style="display:none;">
+          <input type="text" name="r" id="r/">
+        </div>
+      </div>
+    </div>
+
+  </div>
 </div>
