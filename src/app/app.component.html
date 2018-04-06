@@ -76,7 +76,7 @@
             <div>
               <!--<input type="submit" class="btn" id="btnSubmit"/>-->
               <button type="button" style="cursor: not-allowed !important" class="btn" id="btnSubmit" *ngIf="!fFile.valid" >Submit</button>
-              <button type="submit" class="btn" name="btnSubmit" id="btnSubmit" *ngIf="fFile.valid && fFile.touched">Submit</button>
+              <button type="submit" class="btn" name="btnSubmit" id="btnSubmit" *ngIf="fFile.valid">Submit</button>
             </div>
           </div><br>
           <span *ngIf="fileReady" style="color: green">File Protection successfull  !!!</span>
