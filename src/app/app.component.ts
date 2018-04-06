@@ -50,7 +50,7 @@ export class AppComponent implements OnInit {
     } else if (new Date > this.date) {
       alert('Try again , Your OTP has been Expired !!! ');
     } else {
-      alert(this.name + ' You have successfully authenticated');
+      alert(this.name.toUpperCase() + ' You have successfully authenticated');
     }
   }
 }
