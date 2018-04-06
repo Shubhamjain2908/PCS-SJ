@@ -52,14 +52,14 @@
           <div class="pass-input">
             <div class="form-group">
               <input type="password" class="form-control" id="key" name="key"
-                     placeholder="Enter password" ngModel>
+                     placeholder="Enter password" ngModel required>
             </div>
           </div>
           <div class="submit-btn">
             <div>
               <!--<input type="submit" class="btn " id="btnSubmit">-->
               <button type="button" style="cursor: not-allowed !important" class="btn" id="btnSubmit" *ngIf="!f.valid" >Submit</button>
-              <button type="submit" class="btn" name="btnSubmit" id="btnSubmit" *ngIf="f.valid && f.touched">Submit</button>
+              <button type="submit" class="btn" name="btnSubmit" id="btnSubmit" *ngIf="f.valid">Submit</button>
             </div>
           </div><br>
           <span *ngIf="fileReady" style="color: red">File decryption successfull !!!</span>
