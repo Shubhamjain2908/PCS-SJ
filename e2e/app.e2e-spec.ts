@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('encryption App', () => {
+describe('log App', () => {
   let page: AppPage;
 
   beforeEach(() => {

@@ -1,217 +1,3 @@
-.rendering-container{
-  padding: 20px;
-}
-.upload-content{
-  height: 180px;
-  border: 1px dashed #ccc;
-  background-color: #fff;
-  border-collapse: collapse;
-  float: left;
-  width: 24%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.drag-drop {
-  padding: 10px;
-}
-.preview-div{
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  /*-webkit-box-align: center;
-  -webkit-box-pack: center;
-  */
-  position:fixed;
-  background-size: contain;
-  background-repeat: no-repeat;
-  display: none;
-  width: 100%;
-  height: 100%;
-  z-index: 10000;
-  position: fixed;
-  background: rgba(0, 0, 0, 0.6);
-  top: 0px;
-  left: 0px;
-
-}
-.preview-image{
-  width:400px;
-  height:300px;
-  position:fixed;
-
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-
-.close-preview{
-  position: absolute;
-  right: -10px;
-  top: -10px;
-  width: 35px;
-  font-size: 18px;
-  height: 35px;
-  color: white;
-  background-color: #ef5350;
-  border-radius: 50px;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.close-preview span{
-  display: inline-block;
-  line-height: 21px;
-}
-
-#showFiles{
-  padding: 20px;
-  background-color: #fff;
-}
-.drop-box-container{
-  margin-top: 30px;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.uploaded-image{
-  width: 100%;
-  text-align: center;
-}
-.uploaded-image img{
-  width: 50%;
-}
-
-#uploadedFiles{
-  width: 85%
-}
-.uploaded-file-name{
-  overflow: hidden;
-  color: #ccc;
-  text-align: center;
-  text-overflow: ellipsis;
-  margin-bottom: 0;
-}
-.progressBar{
-  width:35%;
-  background-color: #ddd;
-  border-radius: 20px;
-}
-.progress{
-  width:0%;
-  background-color: #626FE6;
-  border-radius: 20px;
-  color: #fff;
-  text-align: center;
-  padding: 5px;
-}
-#form-div{
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
-#form-div input[type=file]{
-  display: none;
-}
-#form-div p{
-  text-align: center;
-  margin: 0;
-  color: #555;
-}
-.delete-file{
-  font-size: 20px;
-}
-.file-view{
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  border-bottom: 1px dashed #ccc;
-}
-.file-name{
-  overflow: hidden;
-  width: 20%;
-  text-overflow: ellipsis;
-}
-.file-size{
-  overflow: hidden;
-}
-
-.form-element {
-  padding: 30px;
-}
-
-.uploded-files-container{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-}
-.cardView{
-  width:100%;
-  height: 10%;
-}
-.drop-zone{
-  width:90%;
-  height:20%;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
-.drag-over{
-  border: 2px dashed #8787A3;
-  background-color: #F1F6F5;
-}
-.delete-file{
-  cursor: pointer;
-}
-.image-thumbnail{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100px;
-  height: 100px;
-  font-size: 60px;
-  padding: 10px;
-}
-.preview{
-  margin-left: 10px;
-}
-.image-thumbnail img{
-  max-height: 100%;
-  width: 100%;
-  object-fit: contain;
-}
-.form-element {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 40%;
-  height: 50px;
-  border: 1px dashed #ccc;
-}
-.disabled-btn{
-  margin-left: 10px;
-  color: #e6e6e6;
-  background-color: beige;
-  border-color: #fd7570;
-  display: inline-block;
-  font-weight: normal;
-  line-height: 1.25;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  border: 1px solid transparent;
-  padding: 7px 14px;
-  font-size: 14px;
-  border-radius: 0.25rem;
-  transition: all 0.2s ease-in-out;
-}
 .wrapper{
   margin:10px;
   border: 1px solid #f2f2f2;
@@ -232,20 +18,22 @@
   width:90%;
 
 }
+.form-control{
+  width: 80%;
+}
 .first-step .input{
   border: 1px solid rgba(0, 0, 0, 0.15);
   width: 61%;
   margin: 7px;
 }
 input{
-  min-width:80%;
-}
-input.ng-invalid.ng-touched {
-  border: 1px solid red;
+  min-width:60%;
 }
 .label{
   padding:20px;
   width:60px;
+  font-size:13px;
+  font-weight: bold;
 }
 .second-step{
   display:inline-flex;
@@ -261,46 +49,51 @@ input.ng-invalid.ng-touched {
   margin:10px;
 
 }
-.submit-btn{
+.submit{
   width:10%;
+  padding:20px;
 }
-.encrypt-container{
-  display: inline-flex;
-  width: 90%;
-}
-.pwd-encrypt-wrapper{
-  margin: 15px;
-  width: 50%;
-  border: 1px solid #f2f2f2;
-}
-.file-encrypt-wrapper{
-  margin: 15px;
-  width: 50%;
-  border: 1px solid #f2f2f2;
-}
-.pwd-encrypt-wrapper-form{
-  margin: 10px;;
-}
-.file-encrypt-wrapper-form{
-  margin: 10px;;
-}
-.input-string{
-  margin-top: 15px;
-}
-.pass-input{
-  margin-bottom: 10px;
-}
-@media screen and (max-width: 480px){
-  .encrypt-container{
-    display: block;
 
-  }
-  .pwd-encrypt-wrapper{
+@media only screen and (max-device-width : 480px) {
+  .form-group{
     width: 100%;
   }
-
-  .file-encrypt-wrapper{
-    width: 100%;
+  .first-step .input{
+    width: 70%;
   }
+  .date-selector{
+    width:70%;
+  }
+  .label{
+    padding: 20px 0px 20px 10px;
+    width: 55px;
+  }
+  .first-step input{
+    width: 50%;
+  }
+}
+@media only screen and (max-device-width : 1024px) and (min-device-width: 480px) {
+  .form-group{
+    width: 100%;
 
+  }
+  .first-step input{
+    width: 50%;
+  }
+  .label{
+    padding: 20px 0px 20px 10px;
+    width: 55px;
+  }
+  .form-control{
+    width: 80%;
+  }
+  .date-selector{
+    width:61%;
+  }
+}
+#logResult span{
+  display: inline-block;
+  color: rgba(0, 0, 0, 0.55);
+  text-align: center;
+  padding-top: 5px;
 }

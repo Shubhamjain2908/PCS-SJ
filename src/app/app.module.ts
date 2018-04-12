@@ -3,9 +3,9 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
-import {EncryptionService} from './encryption.service';
-import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import {FormsModule} from '@angular/forms';
+import {LogService} from './log.service';
 
 
 @NgModule({
@@ -17,7 +17,7 @@ import {HttpClientModule} from '@angular/common/http';
     HttpClientModule,
     FormsModule
   ],
-  providers: [EncryptionService],
+  providers: [LogService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

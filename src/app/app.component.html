@@ -1,102 +1,85 @@
 <div class="wrapper">
-  <div class="wrapper-heading blue"><h2 class="h5 white-heading">Encryption & File Protection</h2></div>
-  <div class="encrypt-container">
-
-    <div class="pwd-encrypt-wrapper">
-      <div class="wrapper-heading blue"><h2 class="h5 white-heading">Encryption</h2></div>
-      <div class="pwd-encrypt-wrapper-form">
-        <form role="form" name="pwdEncForm" id="pwdEncForm">
-          <div class="">
-            <div class="">
-              <div class="form-group">
-                <div class="selectContainer">
-                  <select class="form-control" name="algorithm" id="algorithm" (change)="onMethodChange(encryptionMethod)" #encryptionMethod required>
-                    <option value="">--Select Encryption method--</option>
-                    <option value="aes">AES</option>
-                    <option value="base64">Base64</option>
-                    <option value="bcrypt">Bcrypt</option>
-                    <option value="blowfish">Blowfish</option>
-                    <option value="md5">Message Digest (MD5)</option>
-                    <option value="PBKD">PBKD</option>
-                    <option value="sha">SHA-512</option>
-                    <option value="TripleDES">TripleDES</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-            <div class="input-string">
-              <div class="form-group">
-                <!--<label class="sr-only" for="password">Input String</label>-->
-                <input type="text" name="password" placeholder="Enter any String..." required
-                       class="form-control" id="password"  (keyup)="encryptedPassword(encryptionMethod, pwd)" #pwd>
-              </div>
-              <div class="form-group" *ngIf="isMethodAES">
-                <!--<label class="sr-only" for="password">Key</label>-->
-                <input type="password" name="key" placeholder="Enter the key..." required
-                       class="form-control" id="key" [(ngModel)]="key">
-              </div>
-            </div>
-          </div>
-        </form>
-        <br>
-
-        <div class="">
-          <div class="form-group">
-            <input type="text" name="pwdResponse" id="pwdResponse" [(ngModel)]="encPwd" readonly>
-          </div>
+  <div class="wrapper-heading blue"><h2 class="h5 white-heading">Log</h2></div>
+  <form role="form" name="logForm" id="logForm" enctype="multipart/form-data" (ngSubmit)="onSubmit()" #fFile="ngForm">
+    <div class="first-step">
+      <div class="form-group">
+        <div class="label"><label for="file">Step - 1</label></div>
+        <div class="input" style="color:grey;">
+          <input type="file" class="form-control" id="file" name="file" (change)="onFileChange()" required #AccUserImg>
+          <input type="button" class="btn" required style="width: 28%; margin-left: 15px; min-width: 10%! important; padding-left: 7px;"   value="Use Sample" (click)="useSampleFile()">Submit Sample File...
         </div>
 
       </div>
     </div>
-
-    <div class="file-encrypt-wrapper">
-      <div class="wrapper-heading blue"><h2 class="h5 white-heading">File Protection</h2></div>
-      <div class="file-encrypt-wrapper-form">
-        <form role="form" name="fileEncForm" id="fileEncForm" enctype="multipart/form-data"
-              (ngSubmit)="onSubmit()" #fFile="ngForm">
-          <div class="">
-            <div class=" " >
-              <div class="form-group">
-                <input type="file" class="form-control" id="file" name="file" (change)="onFileChange()" required #AccUserImg>
-              </div>
-            </div>
-          </div>
-
-          <br>
-
-          <div class="pass-input">
-
-            <div class="form-group">
-              <input type="password" class="form-control" id="key" name="key" placeholder="Enter password" required ngModel>
-            </div>
-
-          </div>
-
-          <div class="submit-btn">
-            <div>
-              <!--<input type="submit" class="btn" id="btnSubmit"/>-->
-              <button type="button" style="cursor: not-allowed !important" class="btn" id="btnSubmit" *ngIf="!fFile.valid" >Submit</button>
-              <button type="submit" class="btn" name="btnSubmit" id="btnSubmit" *ngIf="fFile.valid">Submit</button>
-            </div>
-          </div><br>
-          <span *ngIf="fileReady" style="color: green">File Protection successfull  !!!</span>
-        </form>
-        <br>
-        <form (ngSubmit)="onDownload()" #fs="ngForm">
-          <div *ngIf="fileReady" class="submit-btn">
-            <div>
-              <input type="submit" class="btn" id="btnSubmiat" value="Download">
-            </div>
-          </div>
-        </form>
-        <br>
-
-        <div id="fileResult" style="display:none;">
-          <input type="text" name="r" id="r/">
+    <br>
+    <div class="second-step">
+      <div class="label"><label for="file">Step - 2</label></div>
+      <div class="date-selector">
+        <div class="form-group">
+          <div class="label"><label for="start">Starting</label></div>
+          <div class="input"><input type="date" class="form-control" id="start" name="start" ngModel #start="ngModel"></div>
+        </div>
+        <div class="form-group">
+          <div class="label"><label for="end">&nbsp;Ending</label></div>
+          <div class="input"><input type="date" class="form-control" id="end" name="end" ngModel #end="ngModel"></div>
         </div>
       </div>
-
     </div>
+    <div class="submit">
+      <button *ngIf="!isFileSelected" type="button" style="cursor: not-allowed !important" class="btn " id="btnSubmit">Submit</button>
+      <input *ngIf="isFileSelected" type="submit" class="btn " id="btnSubmit">
+    </div>
+
+  </form>
+  <br>
+
+  <div *ngIf="isLogGenerated" class="" id="logResult" style="display: inline-flex;
+                          border: 1px solid rgba(0, 0, 0, 0.15);
+                          margin-left: 20px;
+                          margin-bottom: 10px;
+                          margin-right: 10px;
+                          font-weight: 600;
+                          padding: 0px 10px 10px 10px ;">
+
+      <div style="display: grid;
+                  padding-right: 5px;
+                  padding-left: 5px;
+                  border-right: 1px solid rgba(0, 0, 0, 0.15);">
+        <span>DEBUG </span>
+        <span id="debugData" ngModel>{{debugData}}</span>
+      </div>
+
+      <div style="display: grid;
+                  padding-right: 5px;
+                  padding-left: 5px;
+                  border-right: 1px solid rgba(0, 0, 0, 0.15);">
+        <span>INFO </span>
+        <span id="infoData">{{infoData}}</span>
+      </div>
+
+      <div style="display: grid;
+                  padding-right: 5px;
+                  padding-left: 5px;
+                  border-right: 1px solid rgba(0, 0, 0, 0.15);">
+        <span>ERROR </span>
+        <span id="errorData">{{errorData}}</span>
+      </div>
+
+      <div style="display: grid;
+                  padding-right: 5px;
+                  padding-left: 5px;
+                  border-right: 1px solid rgba(0, 0, 0, 0.15);">
+        <span>WARN </span>
+        <span id="warnData">{{warnData}}</span>
+      </div>
+
+      <div style="display: grid;
+                  padding-right: 5px;
+                  padding-left: 5px;">
+        <span>TRACE </span>
+        <span id="traceData">{{traceData}}</span>
+      </div>
 
   </div>
+
 </div>
