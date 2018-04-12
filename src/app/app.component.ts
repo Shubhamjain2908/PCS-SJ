@@ -66,7 +66,11 @@ export class AppComponent implements OnInit {
   }
 
   onFileChange() {
-    this.isFileSelected = true;
+    if (this.AccUserImage.nativeElement.files.length !== 0) {
+      this.isFileSelected = true;
+    } else {
+      this.isFileSelected = false;
+    }
   }
 
   onSubmit() {
@@ -95,7 +99,7 @@ export class AppComponent implements OnInit {
   }
 
   onDownload() {
-    window.location.href = 'http://localhost:8383/pepcuscapability-showcase/decrypt/file?filename=' + this.filename;
+    window.location.href = '/pepcuscapability-showcase/decrypt/file?filename=' + this.filename;
     this.isFileSelected = false;
     this.fileReady = false;
     this.submitForm.reset();

@@ -8,12 +8,12 @@ export class DecryptionService {
 
   decryptPassword(algorithm: string, password: string, key: string) {
     const head = new HttpHeaders({'content-type' : 'application/json'});
-    return this.http.post('http://localhost:8383/pepcuscapability-showcase/decrypt',
+    return this.http.post('/pepcuscapability-showcase/decrypt',
                           {algorithm: algorithm , password: password, key: key},
                           {headers: head});
   }
 
   decryptFile(data: Data) {
-    return this.http.post('http://localhost:8383/pepcuscapability-showcase/decrypt/file', data);
+    return this.http.post('/pepcuscapability-showcase/decrypt/file', data);
   }
 }
