@@ -3,30 +3,34 @@
     <div class="content-heading darkblue">
       <h2 class="h5 white-heading">Email Verification</h2>
     </div>
-    <form id="myform" (ngSubmit)="onSubmit(name,email,number,password)" #f="ngForm">
+    <form id="myform" (ngSubmit)="onSubmit(name,email,number)" #f="ngForm">
 
       <div class="progression-input-field">
         <label class="label" for="f1">Name</label>
 
         <input id="name" type="text" name="name" value="" placeholder="Name" ngModel required #name="ngModel">
+        <label class="label" style="color: red" for="f1" *ngIf="!name.valid && name.touched">You should have a Name ...</label>
       </div>
 
       <div class="progression-input-field">
         <label class="label" for="">Number</label>
 
-        <input id="number" type="number" name="number" placeholder="Number" ngModel required #number>
+        <input id="number" type="number" name="number" placeholder="Number" ngModel required #number="ngModel">
+        <label class="label" style="color: red" for="f1" *ngIf="!number.valid && number.touched">Provide a number.</label>
       </div>
 
       <div class="progression-input-field">
         <label class="label" for="">Email</label>
 
         <input id="email" type="email" name="email" placeholder="Email" ngModel required email #email="ngModel">
+        <label class="label" style="color: red" for="f1" *ngIf="!email.valid && email.touched">Enter a valid Email address for verification.</label>
       </div>
 
       <div class="progression-input-field">
         <label class="label" for="">Password</label>
 
-        <input id="password" type="password" name="password" placeholder="Password" ngModel required #password>
+        <input id="password" type="password" name="password" placeholder="Password" ngModel required #password="ngModel">
+        <label class="label" style="color: red" for="f1" *ngIf="!password.valid && password.touched">You should have a password for your account.</label>
       </div>
 
       <div class="progression-button">
@@ -34,19 +38,27 @@
         <button type="submit" class="btn" name="btnSubmit" id="btnSubmit" *ngIf="f.valid && f.touched">Submit</button>
 
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <span style="color: red; position: absolute;" class="invalid" *ngIf="!f.valid && f.touched">All fields are mandatory</span>
+        <span style="color: red; position: absolute;" class="invalid" *ngIf="!f.valid && name.touched && number.touched && email.touched && password.touched">All fields are mandatory</span>
       </div>
 
     </form>
     <div class="" style="margin:10px; width:35%;" *ngIf="isOtpSent" id="verifyUser">
       <form id="verifyForm" (ngSubmit)="onVerify(otp)" #f2="ngForm">
         <div class="form-control input">
-          <input type="number" name="otp" id="otp" placeholder="Enter the verification code" #otp>
-          <button type="submit" class="btn " name="btnSubmitVerify" id="btnSubmitVerify" value="Lets Go!">
+          <input type="number" name="otp" id="otp" placeholder="Enter the verification code" ngModel #otp="ngModel" required>
+          <button type="button" style="cursor: not-allowed !important" class="btn " name="btnSubmitVerify" id="btnSubmitV" value="Lets Go!" *ngIf="!f2.valid">
+            Submit
+          </button>
+          <button type="submit" class="btn" name="btnSubmitVerify" id="btnSubmitVerify" value="Lets Go!" *ngIf="f2.valid">
             Submit
           </button>
         </div>
       </form>
     </div>
   </section>
+</div>
+<div class="loading" *ngIf="loader">
+  <div class="loading-image">
+    <div class="loader"></div>
+  </div>
 </div>

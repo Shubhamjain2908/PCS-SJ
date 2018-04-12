@@ -7,7 +7,7 @@ export class UserService {
 
   userAuth(name, email, number) {
     const head = new HttpHeaders({'content-type' : 'application/json'});
-    return this.http.post('http://localhost:8383/pepcuscapability-showcase/mail',
+    return this.http.post('/pepcuscapability-showcase/mail',
                           {name: name, email: email, number: number},
                           {headers: head});
   }
