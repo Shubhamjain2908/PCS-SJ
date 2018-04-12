@@ -38,7 +38,7 @@ export class AppComponent {
           },
           (error) => {
             this.encPwd = 'Can not be encrypted';
-            console.log('Errrrrrrrrr' + error);
+            console.log('Errrrrrrrrr', error);
           }
         );
     }
@@ -53,7 +53,11 @@ export class AppComponent {
   }
 
   onFileChange() {
-    this.isFileSelected = true;
+    if (this.AccUserImage.nativeElement.files.length !== 0) {
+      this.isFileSelected = true;
+    } else {
+      this.isFileSelected = false;
+    }
   }
 
   onSubmit() {
@@ -77,7 +81,7 @@ export class AppComponent {
   }
 
   onDownload() {
-    window.location.href = 'http://localhost:8383/pepcuscapability-showcase/encrypt/file?filename=' + this.filename;
+    window.location.href = '/pepcuscapability-showcase/encrypt/file?filename=' + this.filename;
     this.isFileSelected = false;
     this.fileReady = false;
     this.submitForm.reset();
